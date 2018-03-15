@@ -21,3 +21,6 @@
 
   var db = firebase.database();
 
+  weather();
+  google();
+
