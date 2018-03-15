@@ -13,7 +13,7 @@
 //   var database = firebase.database();
 //   api keys
 function weather() {
-	var queryURL ="http://api.openweathermap.org/data/2.5/forecast?zip=33132&APPID=8fa5bed612da59c7d341e2eeefbe2d3f";
+	var queryURL ="https://api.openweathermap.org/data/2.5/forecast?zip=33132&APPID=8fa5bed612da59c7d341e2eeefbe2d3f";
 	var apiKey = "8fa5bed612da59c7d341e2eeefbe2d3f";
 	//this is to get the api to work
 	$.ajax({
