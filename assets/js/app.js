@@ -24,3 +24,39 @@
   weather();
   google();
 
+  // Dynamically Generate divs
+
+  var cardList = ['Eat', 'Entertain', 'Learn', 'Exercise']
+
+  var cuisineList = ['American', 'Chinese', 'Mexican', 'Italian',]
+
+  function generateCards () {
+    for (var i = 0; i < cardList.length; i++) {
+      newDiv = $('<div>');
+      header = $('<h2>');
+      newDiv.addClass('card container text-center col-xs-10 col-md-4 col-lg-3 offset-xs-1');
+      newDiv.attr('data', cardList[i]);
+      header.text(cardList[i]);
+      newDiv.append(header);
+      $('.card-viewer').append(newDiv)
+    }
+  }
+
+  generateCards();
+
+// Click event for regenerating cards after click.
+$('.card').click(function () {
+  $('.card-viewer').empty();
+
+  if ('Eat' === $(this).attr('data')) {
+    cardList = cuisineList;
+    generateCards(); 
+  }
+
+
+})
+
+
+
+
+

@@ -21,3 +21,10 @@ div.jumbotron#home {
 	padding-bottom: 15%;
 }
 
+.card {
+	margin-top: 5px;
+	background: blue;
+	display: inline-block;
+	height: 100px;
+	cursor: pointer;
+}
