@@ -21,3 +21,20 @@ div.jumbotron#home {
 	padding-bottom: 15%;
 }
 
+.card {
+	margin-top: 5px;
+	background: blue;
+	display: inline-block;
+	height: 100px;
+	cursor: pointer;
+}
+
+#map {
+        height: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
