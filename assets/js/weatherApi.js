@@ -12,8 +12,8 @@
 
 //   var database = firebase.database();
 //   api keys
-function weather() {
-	var queryURL ="https://api.openweathermap.org/data/2.5/forecast?zip=33132&APPID=8fa5bed612da59c7d341e2eeefbe2d3f";
+function weather(pos) {
+	var queryURL =`https://api.openweathermap.org/data/2.5/forecast?lat=${pos.lat}&lon=${pos.lng}&APPID=8fa5bed612da59c7d341e2eeefbe2d3f`;
 	var apiKey = "8fa5bed612da59c7d341e2eeefbe2d3f";
 	//this is to get the api to work
 	$.ajax({
@@ -21,8 +21,9 @@ function weather() {
 	method: "GET"
 	//this tells javascript to show the response after the ajax call
 	}).then(function(response) {
-	console.log(response);
+	
 	var results = response.data;
+	console.log(response);
 	});
 
 }

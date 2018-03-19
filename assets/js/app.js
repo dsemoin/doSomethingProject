@@ -6,7 +6,12 @@
 
 // Weather API | api key: 8fa5bed612da59c7d341e2eeefbe2d3f
 // -----------
-
+  //this displays the results from the api key
+  // for(var i = 0; i < results.length; i++) {
+  //   var t = $("<div class='item'>");
+  //   var p = $("<p>").text("Rating: " + results [i].rating);
+  //   var topicImage = $("<img>");
+  //   topicImage.attr("src", results[i].images.fixed_height.url);
 
 // Initialize Firebase
   var config = {
@@ -80,6 +85,9 @@ var map, infoWindow;
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
             map.setCenter(pos);
+            console.log(pos);
+            // passed pos to get weather based on location
+            weather(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -96,8 +104,8 @@ var map, infoWindow;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-initMap();
+    
+// initMap();
 
 
 
