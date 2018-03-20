@@ -26,9 +26,13 @@
 
   // Dynamically Generate divs
 
-  var cardList = ['Eat', 'Entertain', 'Learn', 'Exercise']
+  var cardList = ['Food', 'Entertainment', 'Activities']
 
   var cuisineList = ['American', 'Chinese', 'Mexican', 'Italian',]
+
+  var entertainList = ['Events', 'Movies', 'Dancing']
+
+  var activityList = ['Park', 'Zoo', ]
 
   var inOrOut  = []
 
@@ -46,6 +50,8 @@
 
   generateCards();
 
+
+
 // Click event for regenerating cards after click.
 $('.card').click(function () {
   $('.card-viewer').empty();
@@ -60,26 +66,35 @@ $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
 })
 
-var map, infoWindow;
+// Map
+var map, infoWindow, pos;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          zoom: 14
         });
+
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
+            pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent("You're Here.");
             infoWindow.open(map);
             map.setCenter(pos);
+
+            var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pos,
+          radius: 1000,
+          type: ['restaurant']
+        }, callback);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -87,7 +102,6 @@ var map, infoWindow;
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -97,7 +111,35 @@ var map, infoWindow;
         infoWindow.open(map);
       }
 
-initMap();
+      // var service = new google.maps.places.PlacesService(map);
+      //   service.nearbySearch({
+      //     location: pos,
+      //     radius: 500,
+      //     type: ['spa']
+      //   }, callback);
+    }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+weather();
 
 
 
