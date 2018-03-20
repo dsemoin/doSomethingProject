@@ -66,6 +66,16 @@ $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
 })
 
+$('#sign-up').click(function() {
+  $('#mod-head').text('Sign Up');
+  $('#login-btn').text('Sign Up');
+})
+
+$('#log-in').click(function() {
+  $('#mod-head').text('Log In');
+  $('#login-btn').text('Login');
+})
+
 // Map
 var map, infoWindow, pos;
       function initMap() {
