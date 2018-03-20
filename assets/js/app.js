@@ -21,6 +21,53 @@
 
   var db = firebase.database();
 
+  // Login Functionality
+
+  const txtEmail = $('#email');
+  const txtPassword = $('#password');
+  const login = $('#login-btn');
+  const signUp = $('#signup-btn');
+
+  login.click(function () {
+
+    const email = txtEmail.val();
+    console.log(email);
+    const pass = txtPassword.val();
+    console.log(pass)
+    const auth = firebase.auth();
+    console.log(auth)
+
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+
+    promise.catch(e => console.log(e.message));
+  });
+
+  signUp.click(function () {
+
+    const email = txtEmail.val();
+    console.log(email);
+    const pass = txtPassword.val();
+    console.log(pass)
+    const auth = firebase.auth();
+    console.log(auth)
+
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+
+    promise.catch(e => console.log(e.message));
+  });
+
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser){
+      console.log(firebaseUser);
+      $('#sign-up').hide();
+      $('#log-in').hide();
+      $('#start').removeClass('hidden');
+    }
+    else {
+      console.log('not logged in');
+    }
+  });
+
   // weather();
   // google();
 
@@ -68,12 +115,15 @@ $('#start').click(function() {
 
 $('#sign-up').click(function() {
   $('#mod-head').text('Sign Up');
-  $('#login-btn').text('Sign Up');
+  $('#login-btn').addClass('hidden');
+  $('#signup-btn').removeClass('hidden');
+
 })
 
 $('#log-in').click(function() {
   $('#mod-head').text('Log In');
-  $('#login-btn').text('Login');
+  $('#login-btn').removeClass('hidden');
+  $('#signup-btn').addClass('hidden');
 })
 
 // Map
