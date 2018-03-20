@@ -1,13 +1,3 @@
-// Groupon API | (token auth)
-// -----------
-
-// Google API | api key: AIzaSyDRsx9FnAROae4cLDp1FiJhKYChqD7Bejg
-// -----------
-
-// Weather API | api key: 8fa5bed612da59c7d341e2eeefbe2d3f
-// -----------
-
-
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB1NNGKvL9KRoL3siEyKCMA0_lKV5xU5Xc",
@@ -21,7 +11,9 @@
 
   var db = firebase.database();
 
-  // Login Functionality
+// ============================================================================
+// Login Functionality
+// ============================================================================
 
   const txtEmail = $('#email');
   const txtPassword = $('#password');
@@ -67,67 +59,86 @@
       console.log('not logged in');
     }
   });
-
-  // weather();
-  // google();
-
-  // Dynamically Generate divs
-
-  var cardList = ['Food', 'Entertainment', 'Activities']
-
-  var cuisineList = ['American', 'Chinese', 'Mexican', 'Italian',]
-
-  var entertainList = ['Events', 'Movies', 'Dancing']
-
-  var activityList = ['Park', 'Zoo', ]
-
-  var inOrOut  = []
-
-  function generateCards () {
-    for (var i = 0; i < cardList.length; i++) {
-      newDiv = $('<div>');
-      header = $('<h2>');
-      newDiv.addClass('card container text-center col-xs-10 col-md-4 col-lg-3 offset-xs-1');
-      newDiv.attr('data', cardList[i]);
-      header.text(cardList[i]);
-      newDiv.append(header);
-      $('.card-viewer').append(newDiv)
-    }
-  }
-
-  generateCards();
+// ---------------------------------------------------------------------
+// Log Out
+// ---------------------------------------------------------------------
+  $('#logOut').click(function (){
+  firebase.auth().signOut();
+  $('#start').addClass('d-none');
+  $('#log-in').show();
+  $('#sign-up').show();
+  $('#map').hide();
+  $('.card').hide();
+});
 
 
+// =============================================================================
+// Dynamically Generate divs
+// =============================================================================
+var myVar = [""];
 
+var cardList = ['Food', 'Entertainment', 'Fitness']
+
+var cuisineList = ['American', 'Chinese', 'Mexican', 'Italian',]
+
+var entertainList = ['Events', 'Movies', 'Club']
+
+var activityList = ['Park', 'Zoo', 'Gym', 'Martial Arts']
+
+var inOrOut  = []
+
+function generateCards () {
+      for (var i = 0; i < cardList.length; i++) {
+        newDiv = $('<div>');
+        header = $('<h2>');
+        newDiv.addClass('card container text-center col-xs-10 col-md-4 col-lg-3 offset-xs-1');
+        newDiv.attr('data', cardList[i]);
+        header.text(cardList[i]);
+        newDiv.append(header);
+        $('.card-viewer').append(newDiv)
+      }
+}
+generateCards();
+// -----------------------------------------------------------------
 // Click event for regenerating cards after click.
+// -----------------------------------------------------------------
 $('.card').click(function () {
   $('.card-viewer').empty();
 
-  if ('Eat' === $(this).attr('data')) {
-    cardList = cuisineList;
-    generateCards(); 
-  }
+        if ('Food' === $(this).attr('data')) {
+          cardList = cuisineList;
+          myVar = $(this).attr('data');
+          generateCards(); 
+          initMap();
+          $('#map').show();
+        }
+
+        if ('Entertainment' === $(this).attr('data')) {
+          cardList = entertainList;
+          myVar = $(this).attr('data');
+          generateCards(); 
+          initMap();
+          $('#map').show();
+        }
+
+         if ('Fitness' === $(this).attr('data')) {
+          cardList = activityList;
+          myVar = $(this).attr('data');
+          generateCards(); 
+          initMap();
+          $('#map').show();
+        }
 });
 
 $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
 })
 
-$('#sign-up').click(function() {
-  $('#mod-head').text('Sign Up');
-  $('#login-btn').addClass('hidden');
-  $('#signup-btn').removeClass('hidden');
 
-})
-
-$('#log-in').click(function() {
-  $('#mod-head').text('Log In');
-  $('#login-btn').removeClass('hidden');
-  $('#signup-btn').addClass('hidden');
-})
-
+//=============================================================================
 // Map
-var map, infoWindow, pos;
+// ============================================================================
+var map, infoWindow, pos, service;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -149,13 +160,25 @@ var map, infoWindow, pos;
             infoWindow.open(map);
             map.setCenter(pos);
 
+            function yourMarker() {
+              var yourLoc = pos;
+              var marker = new google.maps.Marker({
+                map:map,
+                position: pos
+              });
+              google.maps.event.addListener(marker, 'click', function() {
+                infoWindow.setContent("YOU");
+                infoWindow.open(map, this);
+              });
+            };
 
-            //Finds location of places nearby
-            var service = new google.maps.places.PlacesService(map);
+
+            //Finds location of places nearby using 'name'
+             service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pos,
-          radius: 1000,
-          type: ['gym']
+          radius: 3000,
+          name: myVar
         }, callback);
 
 
@@ -201,6 +224,8 @@ var map, infoWindow, pos;
       }
 
 weather();
+
+$('#map').hide();
 
 
 
