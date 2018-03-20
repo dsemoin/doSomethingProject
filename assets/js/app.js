@@ -89,12 +89,17 @@ var map, infoWindow, pos;
             infoWindow.open(map);
             map.setCenter(pos);
 
+
+            //Finds location of places nearby
             var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pos,
           radius: 1000,
-          type: ['restaurant']
+          type: ['gym']
         }, callback);
+
+
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -111,14 +116,9 @@ var map, infoWindow, pos;
         infoWindow.open(map);
       }
 
-      // var service = new google.maps.places.PlacesService(map);
-      //   service.nearbySearch({
-      //     location: pos,
-      //     radius: 500,
-      //     type: ['spa']
-      //   }, callback);
     }
 
+    //Function to Call Markers based on results
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
@@ -127,6 +127,7 @@ var map, infoWindow, pos;
         }
       }
 
+      // Creates Markers based on place
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -134,8 +135,8 @@ var map, infoWindow, pos;
           position: place.geometry.location
         });
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
         });
       }
 
