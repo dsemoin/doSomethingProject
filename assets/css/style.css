@@ -38,3 +38,11 @@ div.jumbotron#home {
         margin: 0;
         padding: 0;
       }
+
+      div {
+      	color: black;
+      }
+
+div#logOut a {
+	margin-left: 90%;
+}
