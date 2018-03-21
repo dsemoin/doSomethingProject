@@ -1,3 +1,19 @@
+
+// Groupon API | (token auth)
+// -----------
+
+// Google API | api key: AIzaSyDRsx9FnAROae4cLDp1FiJhKYChqD7Bejg
+// -----------
+
+// Weather API | api key: 8fa5bed612da59c7d341e2eeefbe2d3f
+// -----------
+  //this displays the results from the api key
+  // for(var i = 0; i < results.length; i++) {
+  //   var t = $("<div class='item'>");
+  //   var p = $("<p>").text("Rating: " + results [i].rating);
+  //   var topicImage = $("<img>");
+  //   topicImage.attr("src", results[i].images.fixed_height.url);
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB1NNGKvL9KRoL3siEyKCMA0_lKV5xU5Xc",
@@ -134,11 +150,11 @@ $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
 })
 
-
 //=============================================================================
 // Map
 // ============================================================================
 var map, infoWindow, pos, service;
+
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -159,6 +175,9 @@ var map, infoWindow, pos, service;
             infoWindow.setContent("You're Here.");
             infoWindow.open(map);
             map.setCenter(pos);
+            
+            // passed pos to get weather based on location
+            weather(pos);
 
             function yourMarker() {
               var yourLoc = pos;
@@ -181,8 +200,6 @@ var map, infoWindow, pos, service;
           name: myVar
         }, callback);
 
-
-
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -198,6 +215,10 @@ var map, infoWindow, pos, service;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+    
+    
+// initMap();
 
     }
 
@@ -222,8 +243,6 @@ var map, infoWindow, pos, service;
           infoWindow.open(map, this);
         });
       }
-
-weather();
 
 $('#map').hide();
 

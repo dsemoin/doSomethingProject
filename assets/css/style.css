@@ -37,11 +37,16 @@ div.jumbotron#home {
         height: 100%;
         margin: 0;
         padding: 0;
-      }
 
-      div {
-      	color: black;
-      }
+	  }
+
+.weather {
+	border-radius: 10px;
+}
+
+div {
+  color: black;
+}
 
 div#logOut a {
 	margin-left: 90%;
