@@ -64,7 +64,7 @@ $('.card').click(function () {
 $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
 })
-
+weatherWidget();
 var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -104,6 +104,7 @@ var map, infoWindow;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+    
     
 // initMap();
 
