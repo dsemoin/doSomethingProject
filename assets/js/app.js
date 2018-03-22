@@ -1,19 +1,3 @@
-
-// Groupon API | (token auth)
-// -----------
-
-// Google API | api key: AIzaSyDRsx9FnAROae4cLDp1FiJhKYChqD7Bejg
-// -----------
-
-// Weather API | api key: 8fa5bed612da59c7d341e2eeefbe2d3f
-// -----------
-  //this displays the results from the api key
-  // for(var i = 0; i < results.length; i++) {
-  //   var t = $("<div class='item'>");
-  //   var p = $("<p>").text("Rating: " + results [i].rating);
-  //   var topicImage = $("<img>");
-  //   topicImage.attr("src", results[i].images.fixed_height.url);
-
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB1NNGKvL9KRoL3siEyKCMA0_lKV5xU5Xc",
@@ -31,35 +15,35 @@
 // Login Functionality
 // ============================================================================
 
-  const txtEmail = $('#email');
-  const txtPassword = $('#password');
-  const login = $('#login-btn');
-  const signUp = $('#signup-btn');
+  var txtEmail = $('#email');
+  var txtPassword = $('#password');
+  var login = $('#login-btn');
+  var signUp = $('#signup-btn');
 
   login.click(function () {
 
-    const email = txtEmail.val();
-    console.log(email);
-    const pass = txtPassword.val();
-    console.log(pass)
-    const auth = firebase.auth();
-    console.log(auth)
+    var email = txtEmail.val();
+    
+    var pass = txtPassword.val();
+   
+    var auth = firebase.auth();
+  
 
-    const promise = auth.signInWithEmailAndPassword(email, pass);
+    var promise = auth.signInWithEmailAndPassword(email, pass);
 
     promise.catch(e => console.log(e.message));
   });
 
   signUp.click(function () {
 
-    const email = txtEmail.val();
-    console.log(email);
-    const pass = txtPassword.val();
-    console.log(pass)
-    const auth = firebase.auth();
-    console.log(auth)
+    var email = txtEmail.val();
+    
+    var pass = txtPassword.val();
+    
+    var auth = firebase.auth();
+   
 
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
+    var promise = auth.createUserWithEmailAndPassword(email, pass);
 
     promise.catch(e => console.log(e.message));
   });
@@ -153,100 +137,96 @@ $('#start').click(function() {
 //=============================================================================
 // Map
 // ============================================================================
-var map, infoWindow, pos, service;
+  var map, infoWindow, pos, service;
 
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 14
-        });
+  var positionRecieved = function(position) {
+        pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent("You're Here.");
-            infoWindow.open(map);
-            map.setCenter(pos);
-            
-            // passed pos to get weather based on location
-            weather(pos);
-
-            function yourMarker() {
-              var yourLoc = pos;
-              var marker = new google.maps.Marker({
-                map:map,
-                position: pos
-              });
-              google.maps.event.addListener(marker, 'click', function() {
-                infoWindow.setContent("YOU");
-                infoWindow.open(map, this);
-              });
-            };
+        infoWindow.setPosition(pos);
+        infoWindow.setContent("You're Here.");
+        infoWindow.open(map);
+        map.setCenter(pos);
 
 
-            //Finds location of places nearby using 'name'
-             service = new google.maps.places.PlacesService(map);
+        //Finds location of places nearby using 'name'
+        service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pos,
           radius: 3000,
           name: myVar
         }, callback);
 
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+        weather(pos);
       }
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 14
+    });
 
-    
-    
-// initMap();
+    infoWindow = new google.maps.InfoWindow;
 
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        positionRecieved(pos); 
+      }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }
+
+  //Function to Call Markers based on results
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
     }
 
-    //Function to Call Markers based on results
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
+  function yourMarker() {
+          var yourLoc = pos;
+          var marker = new google.maps.Marker({
+            map:map,
+            position: pos
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent("YOU");
+            infoWindow.open(map, this);
+          });
+        };
+
+
+  function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
       }
+    }
+  }
 
-      // Creates Markers based on place
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.setContent(place.name);
-          infoWindow.open(map, this);
-        });
-      }
+  // Creates Markers based on place
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(place.name);
+      infoWindow.open(map, this);
+    });
+  }
 
-$('#map').hide();
-
-
+  $('#map').hide();
 
 
 
