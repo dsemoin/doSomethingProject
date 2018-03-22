@@ -7,7 +7,7 @@
 	<!-- Viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap 3 & 4-->
+	<!-- Bootstrap 3 & 4 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -65,38 +65,20 @@
 		</div>
 	</div>
 
-	<div class="container" id="activityBtns">
-		<div class="row">
- 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<!-- Single button -->
-				<div class="btn-group btn-block">
-				  <button type="button" class="btn btn-block btn-dark dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-exclamation-sign"></span> Activities <span class="caret"></span>
-				  </button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Dealer Area</a></li>
-					    <li class="divider"></li>
-					    <li><a href="#"><span class="glyphicon glyphicon-phone"></span> App Registration</a></li>   
-  					</ul>
-				</div>
-			</div>
-
-			<!-- Single button -->
-			
-			<div class="col-md-6 col-sm-6 col-xs-6"> 
-				<a href="https://github.com/sbrona317/doSomethingProject"><button type="button" class="btn btn-dark btn-block">   <span class="glyphicon glyphicon-envelope"></span>  VIEW REPO </button></a>
-			</div>
-		</div>
-	</div>
-
 	<div class="card-viewer row hidden">
 	</div>
+
+	<!-- BACK CARD -->
+    <div class="backCard text-center hidden" id="go-back">
+        <h2>Go Back</h2>
+    </div>
 
 	<div id="map">
 		
 	</div>
 
 	<div class="card weather"  style="width: 18rem;">
-		<div id="weather" class="card-body ">
+		<div id="weather" class="card-body">
 		  <h5 class="card-title">Weather</h5> 
 		</div>
 	</div>
@@ -110,7 +92,7 @@
 <!-- Weather API-->
 <script src="assets/js/weatherApi.js"></script>
 
-<!-- google places api added 3/20-->
+<!-- Google Places API-->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW61taUbxNOQxHhdLBcp3SU_kI0lCV-VQ&libraries=places"></script>
 
 <!-- Bootstrap Script -->
@@ -118,7 +100,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
- <!-- Javascript Link -->
+ <!-- Original JS -->
 <script src="assets/js/app.js"></script>
 </body>
 </html>

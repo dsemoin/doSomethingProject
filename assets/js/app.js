@@ -75,17 +75,23 @@
 // =============================================================================
 // Dynamically Generate divs
 // =============================================================================
+
 var myVar = [""];
 
-var cardList = ['Food', 'Entertainment', 'Fitness']
+var current = '';
 
-var cuisineList = ['American', 'Chinese', 'Mexican', 'Italian',]
+var cardList = ['Food', 'Entertainment', 'Fitness'];
 
-var entertainList = ['Events', 'Movies', 'Club']
+var getStarted = cardList;
 
-var activityList = ['Park', 'Zoo', 'Gym', 'Martial Arts']
+var obj = {
 
-var inOrOut  = []
+'Food':['American', 'Chinese', 'Mexican', 'Italian'],
+
+'Entertainment': ['Events', 'Movies', 'Club'],
+
+'Fitness': ['Park', 'Zoo', 'Gym', 'Martial Arts']
+};
 
 function generateCards () {
       for (var i = 0; i < cardList.length; i++) {
@@ -93,41 +99,61 @@ function generateCards () {
         header = $('<h2>');
         newDiv.addClass('card container text-center col-xs-10 col-md-4 col-lg-3 offset-xs-1');
         newDiv.attr('data', cardList[i]);
+        newDiv.attr('id', cardList[i]);
         header.text(cardList[i]);
         newDiv.append(header);
         $('.card-viewer').append(newDiv)
       }
+      $('.card').click(function () {
+        $('.card-viewer').empty();
+        for (var i = 0; i < cardList.length; i++) {
+          if (cardList[i] === $(this).attr('data')) {
+            console.log(cardList[i]);
+            cardList = obj[cardList[i]];
+            console.log(cardList);
+            myVar = $(this).attr('data');
+            generateCards(); 
+            $('#go-back').removeClass('hidden');
+            $('#map').show();
+
+            if (obj[cardList[i]] === undefined) {
+            initMap();
+            
+            }
+          }
+        }
+    });
 }
 generateCards();
 // -----------------------------------------------------------------
 // Click event for regenerating cards after click.
 // -----------------------------------------------------------------
-$('.card').click(function () {
+
+// $('.card').click(function () {
+//   $('.card-viewer').empty();
+//   for (var i = 0; i < cardList.length; i++) {
+//       if (cardList[i] === $(this).attr('data')) {
+//         console.log(cardList[i]);
+//         cardList = obj[cardList[i]];
+//         console.log(cardList);
+//         myVar = $(this).attr('data');
+//         generateCards(); 
+//         $('#go-back').removeClass('hidden');
+//         $('#map').show();
+
+//         if (obj[cardList[i]] === undefined) {
+//           initMap();
+//         }
+//       }
+//     }
+//   });
+
+$('.backCard').click(function () {
   $('.card-viewer').empty();
-
-        if ('Food' === $(this).attr('data')) {
-          cardList = cuisineList;
-          myVar = $(this).attr('data');
-          generateCards(); 
-          initMap();
-          $('#map').show();
-        }
-
-        if ('Entertainment' === $(this).attr('data')) {
-          cardList = entertainList;
-          myVar = $(this).attr('data');
-          generateCards(); 
-          initMap();
-          $('#map').show();
-        }
-
-         if ('Fitness' === $(this).attr('data')) {
-          cardList = activityList;
-          myVar = $(this).attr('data');
-          generateCards(); 
-          initMap();
-          $('#map').show();
-        }
+  $('.backCard').hide();
+  $('#map').hide();
+  cardList = getStarted;
+  generateCards();
 });
 
 $('#start').click(function() {
