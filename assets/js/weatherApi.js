@@ -25,7 +25,9 @@ function weatherWidget(results) {
 		class: "widget",
 		id : "weatherWidget"
 	})
+	widgetDiv.addClass('text-center')
 	// use string interpolation to get weather info from api and displays current weather.
+	widgetDiv.append("Weather");
 	widgetDiv.append(`<div>${Math.round(weatherInfo.main.temp)}&deg;F</div>`);
 	widgetDiv.append(`<div>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</div>`);
 	widgetDiv.append(`<div>${weatherInfo.main.humidity}% Humidity</div>`);

@@ -21,8 +21,12 @@
 	<title>Do Something!</title>
 </head>
 <body>
-	<div class="row" id="logOut">
-		<a href=# src=#>Log Out</a>
+	<div class="row col-md-12" id="widgetHead">
+		<div class="weather col-md-3 col-sm-6" id="weather">
+		</div>
+		<div class="col-md-2 col-sm-2" id="logOut">
+			<a href="#" src="#">Log Out</a>
+		</div>
 	</div>
 	<div class="jumbotron text-center" id="home">
 		<h1>Do Something!</h1>
@@ -64,24 +68,29 @@
 			</div>
 		</div>
 	</div>
+	<div class="text-center">
+		<div class="card-viewer row hidden">
+		</div>
+		<br>
 
-	<div class="card-viewer row hidden">
+		<!-- BACK CARD -->
+		<div class="text-center">
+		    <div class="backCard text-center hidden" id="go-back">
+		        <h2>Go Back</h2>
+		    </div>
+		</div>
+		<br>
 	</div>
+		<div id="map">
+			
+		</div>
 
-	<!-- BACK CARD -->
-    <div class="backCard text-center hidden" id="go-back">
-        <h2>Go Back</h2>
-    </div>
 
-	<div id="map">
-		
-	</div>
-
-	<div class="card weather"  style="width: 18rem;">
+	<!-- <div class="weather">
 		<div id="weather" class="card-body">
 		  <h5 class="card-title">Weather</h5> 
 		</div>
-	</div>
+	</div> -->
 
 <!-- jQuery Link -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

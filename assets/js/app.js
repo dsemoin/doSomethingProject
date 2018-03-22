@@ -86,7 +86,7 @@ var getStarted = cardList;
 
 var obj = {
 
-'Food':['American', 'Chinese', 'Mexican', 'Italian'],
+'Food':['American', 'Asian', 'Mexican', 'Italian'],
 
 'Entertainment': ['Events', 'Movies', 'Club'],
 
@@ -97,7 +97,7 @@ function generateCards () {
       for (var i = 0; i < cardList.length; i++) {
         newDiv = $('<div>');
         header = $('<h2>');
-        newDiv.addClass('card container text-center col-xs-10 col-md-4 col-lg-3 offset-xs-1');
+        newDiv.addClass('card container text-center col-xs-6 col-md-3 col-lg-3 offset-xs-1');
         newDiv.attr('data', cardList[i]);
         newDiv.attr('id', cardList[i]);
         header.text(cardList[i]);
@@ -126,27 +126,8 @@ function generateCards () {
 }
 generateCards();
 // -----------------------------------------------------------------
-// Click event for regenerating cards after click.
+// Go Back Button Function
 // -----------------------------------------------------------------
-
-// $('.card').click(function () {
-//   $('.card-viewer').empty();
-//   for (var i = 0; i < cardList.length; i++) {
-//       if (cardList[i] === $(this).attr('data')) {
-//         console.log(cardList[i]);
-//         cardList = obj[cardList[i]];
-//         console.log(cardList);
-//         myVar = $(this).attr('data');
-//         generateCards(); 
-//         $('#go-back').removeClass('hidden');
-//         $('#map').show();
-
-//         if (obj[cardList[i]] === undefined) {
-//           initMap();
-//         }
-//       }
-//     }
-//   });
 
 $('.backCard').click(function () {
   $('.card-viewer').empty();
@@ -217,7 +198,7 @@ $('#start').click(function() {
       'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
-
+  // DOES NOT WORK
   function yourMarker() {
           var yourLoc = pos;
           var marker = new google.maps.Marker({
@@ -230,7 +211,7 @@ $('#start').click(function() {
           });
         };
 
-
+  // 20 Results for Places
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {

@@ -22,12 +22,74 @@ div.jumbotron#home {
 }
 
 .card {
-	margin-top: 5px;
+	color:#def;
+	margin: auto;
 	background: blue;
 	display: inline-block;
-	height: 100px;
 	cursor: pointer;
+	border: solid 1px white;
+	padding: 100px;
 }
+	h2 {
+		/*font-size: 30px;
+		letter-spacing: 3px;*/
+	}
+		#Food {
+			background-image: url(../images/chef1.jpg);
+			background-repeat: no-repeat;
+			/*background-position: center;
+			background-attachment: fixed;*/
+			background-size: 100%;
+			padding: 80px;
+		}
+			#American {
+				background-image: url(../images/american.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 65px;
+			}
+			#Asian {
+				background-image: url(../images/asian.jpeg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 65px;
+			}
+			#Mexican {
+				background-image: url(../images/mexican.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 65px;
+			}
+			#Italian {
+				background-image: url(../images/italian.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 65px;
+			}
+		#Entertainment {
+			background-image: url(../images/background.jpg);
+			background-repeat: no-repeat;
+			/*background-position: center;
+			background-attachment: fixed;*/
+			background-size: cover;
+			padding: 80px;
+		}
+		#Fitness {
+			background-image: url(../images/gym.jpg);
+			background-repeat: no-repeat;
+			/*background-position: center;
+			background-attachment: fixed;*/
+			background-size: cover;
+			padding: 80px;
+		}
 
 #map {
         height: 50%;
@@ -40,24 +102,36 @@ div.jumbotron#home {
 
 	  }
 
-.weather {
-	border-radius: 10px;
+#widgetHead {
+	display:inline-block;
+	color:#def;
+	float:right;
 }
-
-div {
-  color: black;
-}
-
-div#logOut a {
-	margin-left: 90%;
-}
+		.weather #weatherWidget {
+			border-radius: 10px;
+			margin: auto;
+			background: lightblue;
+			cursor: pointer;
+		}
+		#logOut {
+			/*margin-left: 90%;
+			text-decoration: none;*/
+			color: red;
+			font-size: 18px;
+		}
 
 .backCard {
+	color:#def;
+	border: solid 1px white;
     padding:30px;
     margin-top: 5px;
     background: red;
     display: inline-block;
     height: 100px;
     cursor: pointer;
-
+	background-image: url(../images/backBtn.jpg);
+	background-repeat: no-repeat;
+	/*background-position: center;
+	background-attachment: fixed;*/
+	background-size: cover;
 }
