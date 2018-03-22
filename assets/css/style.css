@@ -8,12 +8,16 @@ h1 {
 	text-align:center;
 	margin-top:15%;
 	font-size: 50px;
-	letter-spacing: 5px;
+	letter-spacing: 10px;
+	color: #cef6f5;
+    font-weight: 900;
+    background-color: rgba(0,0,0,.5);
+	border-radius: 10px;
 }
 
 div.jumbotron#home {
 	border-bottom: solid black 1px;
-	background-image: url(../images/img.jpg);
+	background-image: url(../images/img2.jpg);
 	/*background-image: url(../images/space.gif);*/
 	background-repeat: no-repeat;
 	background-position: center;
@@ -24,23 +28,31 @@ div.jumbotron#home {
 .card {
 	color:#def;
 	margin: auto;
-	background: blue;
+	background: black;
 	display: inline-block;
 	cursor: pointer;
 	border: solid 1px white;
 	padding: 100px;
 }
-	h2 {
-		/*font-size: 30px;
-		letter-spacing: 3px;*/
+	.question {
+		font-size: 35px;
+		letter-spacing: 5px;
+		color: lightblue;
+	}
+
+	h3 {
+		font-size: 20px;
+	    font-weight: 900;
+	    background-color: rgba(0,0,0,.5);
+	    border-radius: 10px;
 	}
 		#Food {
 			background-image: url(../images/chef1.jpg);
 			background-repeat: no-repeat;
 			/*background-position: center;
 			background-attachment: fixed;*/
-			background-size: 100%;
-			padding: 80px;
+			background-size: cover;
+			padding: 75px;
 		}
 			#American {
 				background-image: url(../images/american.jpg);
@@ -48,7 +60,7 @@ div.jumbotron#home {
 				/*background-position: center;
 				background-attachment: fixed;*/
 				background-size: cover;
-				padding: 65px;
+				padding: 60px;
 			}
 			#Asian {
 				background-image: url(../images/asian.jpeg);
@@ -56,7 +68,7 @@ div.jumbotron#home {
 				/*background-position: center;
 				background-attachment: fixed;*/
 				background-size: cover;
-				padding: 65px;
+				padding: 60px;
 			}
 			#Mexican {
 				background-image: url(../images/mexican.jpg);
@@ -64,7 +76,7 @@ div.jumbotron#home {
 				/*background-position: center;
 				background-attachment: fixed;*/
 				background-size: cover;
-				padding: 65px;
+				padding: 60px;
 			}
 			#Italian {
 				background-image: url(../images/italian.jpg);
@@ -72,7 +84,7 @@ div.jumbotron#home {
 				/*background-position: center;
 				background-attachment: fixed;*/
 				background-size: cover;
-				padding: 65px;
+				padding: 60px;
 			}
 		#Entertainment {
 			background-image: url(../images/background.jpg);
@@ -80,7 +92,7 @@ div.jumbotron#home {
 			/*background-position: center;
 			background-attachment: fixed;*/
 			background-size: cover;
-			padding: 80px;
+			padding: 75px;
 		}
 		#Fitness {
 			background-image: url(../images/gym.jpg);
@@ -88,7 +100,7 @@ div.jumbotron#home {
 			/*background-position: center;
 			background-attachment: fixed;*/
 			background-size: cover;
-			padding: 80px;
+			padding: 75px;
 		}
 
 #map {
@@ -134,4 +146,9 @@ div.jumbotron#home {
 	/*background-position: center;
 	background-attachment: fixed;*/
 	background-size: cover;
+}
+
+/*Markers*/
+div {
+	color:black;
 }

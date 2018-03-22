@@ -20,7 +20,7 @@
   var login = $('#login-btn');
   var signUp = $('#signup-btn');
 
-  login.click(function () {
+  login.click(function logIn() {
 
     var email = txtEmail.val();
     
@@ -34,7 +34,7 @@
     promise.catch(e => console.log(e.message));
   });
 
-  signUp.click(function () {
+  signUp.click(function signUpfx() {
 
     var email = txtEmail.val();
     
@@ -69,6 +69,7 @@
   $('#sign-up').show();
   $('#map').hide();
   $('.card').hide();
+  $('.question').hide();
 });
 
 
@@ -92,11 +93,11 @@ var obj = {
 
 'Fitness': ['Park', 'Zoo', 'Gym', 'Martial Arts']
 };
-
+//Dynamic Div Generator With Data Attr and ID
 function generateCards () {
       for (var i = 0; i < cardList.length; i++) {
         newDiv = $('<div>');
-        header = $('<h2>');
+        header = $('<h3>');
         newDiv.addClass('card container text-center col-xs-6 col-md-3 col-lg-3 offset-xs-1');
         newDiv.attr('data', cardList[i]);
         newDiv.attr('id', cardList[i]);
@@ -104,6 +105,7 @@ function generateCards () {
         newDiv.append(header);
         $('.card-viewer').append(newDiv)
       }
+      //Click Function for Cards
       $('.card').click(function () {
         $('.card-viewer').empty();
         for (var i = 0; i < cardList.length; i++) {
@@ -116,6 +118,7 @@ function generateCards () {
             $('#go-back').removeClass('hidden');
             $('#map').show();
 
+            // Function for Second Card Menu
             if (obj[cardList[i]] === undefined) {
             initMap();
             
@@ -139,6 +142,7 @@ $('.backCard').click(function () {
 
 $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
+  $('.question').removeClass('hidden');
 })
 
 //=============================================================================
@@ -162,7 +166,7 @@ $('#start').click(function() {
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pos,
-          radius: 3000,
+          radius: 3218,
           name: myVar
         }, callback);
 
@@ -172,7 +176,7 @@ $('#start').click(function() {
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
-      zoom: 14
+      zoom: 12
     });
 
     infoWindow = new google.maps.InfoWindow;
