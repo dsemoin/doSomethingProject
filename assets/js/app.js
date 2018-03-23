@@ -156,30 +156,35 @@ function generateCards () {
       //Click Function for Cards
       $('.card').click(function () {
         $('.card-viewer').empty();
-        for (var i = 0; i < cardList.length; i++) {
-          if (cardList[i] === $(this).attr('data')) {
-            
-            cardList = obj[cardList[i]];
-            data = $(this).attr('data');
-            generateCards(); 
-            $('#go-back').removeClass('hidden');
-            $('.backCard').show();
-            $('#map').show();
+        var item = $(this).attr('data');
+        if (obj[item] !== undefined) {
+          for (var i = 0; i < cardList.length; i++) {
+            if (cardList[i] === item) {
+              
+              cardList = obj[cardList[i]];
+              data = item;
+              generateCards(); 
+              $('#go-back').removeClass('hidden');
+              $('.backCard').show();
+              $('#map').show();
 
-            if (current !== '') {
-              current += ' ' + data;
-            }
-
-            if (current === '') {
               current += data;
-              console.log(current)
-            }
-            // Function for Second Card Menu
-            if (obj[cardList[i]] === undefined) {
-            initMap();
-            
+        
+                
+              // Function for Second Card Menu
+              if (obj[cardList[i]] === undefined) {
+              initMap();
+              
+              }
             }
           }
+        }  
+
+        else {
+          item += ' ' + current;
+          console.log(item);
+          data = item;
+          initMap();
         }
     });
 }
@@ -195,6 +200,7 @@ $('.backCard').click(function () {
   cardList = getStarted;
   generateCards();
   current = '';
+  data = '';
 });
 
 $('#start').click(function() {
