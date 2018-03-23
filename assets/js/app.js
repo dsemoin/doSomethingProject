@@ -228,9 +228,6 @@ $('#start').click(function() {
         infoWindow.open(map);
         map.setCenter(pos);
 
-        console.log("Locating Places");
-
-
         //Finds location of places nearby using 'name'
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
@@ -239,7 +236,6 @@ $('#start').click(function() {
           name: data
         }, callback);
 
-        console.log("Grabbing Weather");
         weather(pos);
       }
   function initMap() {
@@ -256,7 +252,8 @@ $('#start').click(function() {
         positionRecieved(pos); 
       }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
-      });
+      // this caches/stores the geolocation for desktop users.
+      }, { maximumAge: Infinity });
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -317,6 +314,7 @@ $('#start').click(function() {
         } else {
           website = place.url;
         }
+        // adds target="_blank" to line 317 to open link in new tab.
         infoWindow.setContent(`
         <p><strong>${place.name}</strong></p>
           ${place.adr_address}
