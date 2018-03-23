@@ -135,11 +135,11 @@ var getStarted = cardList;
 
 var obj = {
 
-'Food':['American', 'Asian', 'Mexican', 'Italian'],
+'Food':['American', 'Asian', 'Latin', 'Italian'],
 
-'Entertainment': ['Events', 'Movies', 'Club'],
+'Entertainment': ['Movies', 'Clubs', 'Events'],
 
-'Fitness': ['Park', 'Zoo', 'Gym', 'Martial Arts']
+'Fitness': ['Gym', 'Park', 'Sports', 'Martial-Arts']
 };
 //Dynamic Div Generator With Data Attr and ID
 function generateCards () {

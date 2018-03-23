@@ -70,7 +70,7 @@ div.jumbotron#home {
 				background-size: cover;
 				padding: 60px;
 			}
-			#Mexican {
+			#Latin {
 				background-image: url(../images/mexican.jpg);
 				background-repeat: no-repeat;
 				/*background-position: center;
@@ -94,6 +94,30 @@ div.jumbotron#home {
 			background-size: cover;
 			padding: 75px;
 		}
+			#Movies {
+				background-image: url(../images/movies.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
+			#Clubs {
+				background-image: url(../images/club.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
+			#Events {
+				background-image: url(../images/event.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
 		#Fitness {
 			background-image: url(../images/gym.jpg);
 			background-repeat: no-repeat;
@@ -102,52 +126,82 @@ div.jumbotron#home {
 			background-size: cover;
 			padding: 75px;
 		}
-
-#map {
-        height: 50%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-
-	  }
-
+			#Gym {
+				background-image: url(../images/gym1.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
+			#Park {
+				background-image: url(../images/park.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
+			#Sports {
+				background-image: url(../images/sports.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
+			#Martial-Arts {
+				background-image: url(../images/mma.jpg);
+				background-repeat: no-repeat;
+				/*background-position: center;
+				background-attachment: fixed;*/
+				background-size: cover;
+				padding: 60px;
+			}
 #widgetHead {
 	display:inline-block;
 	color:#def;
 	float:right;
 }
-		.weather #weatherWidget {
-			border-radius: 10px;
-			margin: auto;
-			background: lightblue;
-			cursor: pointer;
-		}
-		#logOut {
-			/*margin-left: 90%;
-			text-decoration: none;*/
-			color: red;
-			font-size: 18px;
-		}
+div#weatherWidget.widget.text-center {
+	background-image: url(../images/clouds.jpg);
+	background-repeat: no-repeat;
+	/*background-position: center;
+	background-attachment: fixed;*/
+	background-size: cover;
+	padding: 30px;
+	border-radius: 10px;
+	margin: auto;
+	cursor: pointer;
+}
+#logOut {
+	/*margin-left: 90%;
+	text-decoration: none;*/
+	color: red;
+	font-size: 18px;
+}
 
 .backCard {
 	color:#def;
 	border: solid 1px white;
     padding:30px;
-    margin-top: 5px;
     background: red;
     display: inline-block;
     height: 100px;
     cursor: pointer;
 	background-image: url(../images/backBtn.jpg);
 	background-repeat: no-repeat;
-	/*background-position: center;
-	background-attachment: fixed;*/
 	background-size: cover;
 }
-
+#map {
+    height: 50%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 /*Markers*/
 div {
 	color:black;
