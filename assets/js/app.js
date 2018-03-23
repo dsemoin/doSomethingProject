@@ -167,7 +167,7 @@ generateCards();
 
 $('.backCard').click(function () {
   $('.card-viewer').empty();
-  $('.backCard').hide();
+  $('#go-back').addClass('hidden');
   $('#map').hide();
   cardList = getStarted;
   generateCards();
@@ -195,6 +195,8 @@ $('#start').click(function() {
         infoWindow.open(map);
         map.setCenter(pos);
 
+        console.log("Locating Places");
+
 
         //Finds location of places nearby using 'name'
         service = new google.maps.places.PlacesService(map);
@@ -204,7 +206,7 @@ $('#start').click(function() {
           name: myVar
         }, callback);
 
-
+        console.log("Grabbing Weather");
         weather(pos);
       }
   function initMap() {
@@ -253,25 +255,44 @@ $('#start').click(function() {
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
+        service = new google.maps.places.PlacesService(map);
+        service.getDetails({
+          placeId: results[i].place_id
+        }, createMarker)
       }
     }
   }
 
   // Creates Markers based on place
-  function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent(place.name);
-      infoWindow.open(map, this);
-    });
+  function createMarker(place, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      console.log(place);
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        var phone, website;
+        if (place.formatted_phone_number) {
+          phone = `<p>${place.formatted_phone_number}</p>`;
+        } else {
+          phone = '';
+        }
+        if (place.website) {
+          website = place.website;
+        } else {
+          website = place.url;
+        }
+        infoWindow.setContent(`
+        <p><strong>${place.name}</strong></p>
+          ${place.adr_address}
+          ${phone}
+        <span><a href="${website}">${website}</a></span>
+          `);
+        infoWindow.open(map, this);
+      });
+    }
   }
 
   $('#map').hide();
-
-
-
