@@ -235,7 +235,7 @@ $('#start').click(function() {
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pos,
-          radius: 3218,
+          radius: 8046,
           name: data
         }, callback);
 
