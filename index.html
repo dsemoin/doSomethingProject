@@ -21,12 +21,12 @@
 	<title>Do Something!</title>
 </head>
 <body>
-	<div class="row col-md-12" id="widgetHead">
+	<div class="col-md-12" id="widgetHead">
 		<div class="col-md-2 col-sm-2" id="logOut">
 			<a href="#" src="#">Log Out</a>
 		</div>
 	</div>
-
+	
 	<div class="jumbotron text-center" id="home">
 		<h1>Do Something!</h1>
 		<button type="button" class="btn-lg btn-dark hidden" id="start">Get Started</button>
@@ -73,50 +73,48 @@
 		<div class="question hidden">
 			<h2>What Are You In The Mood For?</h2>
 		</div>
-		<div class="card-viewer row hidden">
+		<div class="container">
+			<div class="card-viewer row hidden">
+			</div>
 		</div>
 		<br>
 	</div>
 
-		<!-- BACK CARD -->
+	<!-- BACK CARD -->
+	<div class="container">
 		<div class="belowCards row text-center">
-			<div class="weather text-center col-md-2 col-sm-4" id="weather">
-			</div>
-			<br>
+			
+			<!-- <br> -->
 		    <div class="backCard text-center hidden col-md-2" id="go-back">
 		        <h2>Go Back</h2>
 		    </div>
 		</div>
-		<br>
-		<div class="col-md-12" id="map">
-			
-		</div>
+	</div>
+	<br>
+	<div id="weather">
+	</div>
+	<div class="col-md-12" id="map">
+		
+	</div>
 
+	<!-- jQuery Link -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!-- <div class="weather">
-		<div id="weather" class="card-body">
-		  <h5 class="card-title">Weather</h5> 
-		</div>
-	</div> -->
+	<!-- FireBase -->
+	<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
-<!-- jQuery Link -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Weather API-->
+	<script src="assets/js/weatherApi.js"></script>
 
-<!-- FireBase -->
-<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+	<!-- Google Places API-->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW61taUbxNOQxHhdLBcp3SU_kI0lCV-VQ&libraries=places"></script>
 
-<!-- Weather API-->
-<script src="assets/js/weatherApi.js"></script>
+	<!-- Bootstrap Script -->
 
-<!-- Google Places API-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW61taUbxNOQxHhdLBcp3SU_kI0lCV-VQ&libraries=places"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!-- Bootstrap Script -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
- <!-- Original JS -->
-<script src="assets/js/app.js"></script>
+	 <!-- Original JS -->
+	<script src="assets/js/app.js"></script>
 </body>
 </html>

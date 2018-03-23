@@ -321,7 +321,7 @@ $('#start').click(function() {
         <p><strong>${place.name}</strong></p>
           ${place.adr_address}
           ${phone}
-        <span><a href="${website}">${website}</a></span>
+        <span><a href="${website}" target='_blank'>${website}</a></span>
           `);
         infoWindow.open(map, this);
       });
