@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB1NNGKvL9KRoL3siEyKCMA0_lKV5xU5Xc",
@@ -71,12 +73,16 @@
       $('#login-btn').hide();
       $('#password').val('');
       $('#email').val('');
-      $('#signup-btn').hide();
+      $('#signup-btn').hide
+      $('#logOut').show();
+      $('#error').addClass('d-none');
     }
     else {
       console.log('not logged in');
       $('.modal-form').show();
       $('.login-success').hide();
+      $('#logOut').hide();
+
     }
   });
 
@@ -89,8 +95,13 @@
   $('#sign-up').click(function() {
     $('#signup-btn').show();
     $('#login-btn').hide();
-
   })
+
+  $('.modal-closer').click(function() {
+    $('#email').val('');
+    $('#password').val('');
+    $('#error').addClass('d-none');
+  });
 // ---------------------------------------------------------------------
 // Log Out
 // ---------------------------------------------------------------------
@@ -103,6 +114,10 @@
     $('#map').hide();
     $('.card').hide();
     $('.question').hide();
+    $('#go-back').hide();
+    cardList = getStarted;
+    generateCards();
+    $('.card-viewer').hide();
   });
 
 
@@ -110,7 +125,7 @@
 // Dynamically Generate divs
 // =============================================================================
 
-var myVar = [""];
+var data = '';
 
 var current = '';
 
@@ -129,8 +144,8 @@ var obj = {
 //Dynamic Div Generator With Data Attr and ID
 function generateCards () {
       for (var i = 0; i < cardList.length; i++) {
-        newDiv = $('<div>');
-        header = $('<h3>');
+        var newDiv = $('<div>');
+        var header = $('<h3>');
         newDiv.addClass('card container text-center col-xs-6 col-md-3 col-lg-3 offset-xs-1');
         newDiv.attr('data', cardList[i]);
         newDiv.attr('id', cardList[i]);
@@ -143,14 +158,22 @@ function generateCards () {
         $('.card-viewer').empty();
         for (var i = 0; i < cardList.length; i++) {
           if (cardList[i] === $(this).attr('data')) {
-            console.log(cardList[i]);
+            
             cardList = obj[cardList[i]];
-            console.log(cardList);
-            myVar = $(this).attr('data');
+            data = $(this).attr('data');
             generateCards(); 
             $('#go-back').removeClass('hidden');
+            $('.backCard').show();
             $('#map').show();
 
+            if (current !== '') {
+              current += ' ' + data;
+            }
+
+            if (current === '') {
+              current += data;
+              console.log(current)
+            }
             // Function for Second Card Menu
             if (obj[cardList[i]] === undefined) {
             initMap();
@@ -171,12 +194,16 @@ $('.backCard').click(function () {
   $('#map').hide();
   cardList = getStarted;
   generateCards();
+  current = '';
 });
 
 $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
-  $('.card-viewer').removeClass('d-none')
+  $('.card-viewer').removeClass('d-none');
+  $('.card-viewer').show();
   $('.question').removeClass('hidden');
+  console.log(cardList);
+  $('#start').hide();
 })
 
 //=============================================================================
@@ -203,7 +230,7 @@ $('#start').click(function() {
         service.nearbySearch({
           location: pos,
           radius: 3218,
-          name: myVar
+          name: data
         }, callback);
 
         console.log("Grabbing Weather");
@@ -294,5 +321,7 @@ $('#start').click(function() {
       });
     }
   }
-
+  
   $('#map').hide();
+
+})
