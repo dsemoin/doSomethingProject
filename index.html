@@ -49,20 +49,22 @@
 					</div>
 					<div class="modal-body">
 						<form>
-					 		<div class="form-group">
+					 		<div class="form-group modal-form">
 							    <label for="exampleInputEmail1" style="color: black;">Email address</label>
 							    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+							     <small id="error" class="form-text text-muted d-none" style="color: red;">Invalid email/password.</small>
 					  		</div>
-							<div class="form-group">
+							<div class="form-group modal-form">
 							    <label for="exampleInputPassword1" style="color: black;">Password</label>
 							    <input type="password" class="form-control" id="password" placeholder="Password">
 							</div>
+							<p class="text-center d-none login-success">You have been successfully logged in!</p>
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-primary" id='login-btn'>Login</button>
 						<button type="button" class="btn btn-primary" id='signup-btn'>Sign Up</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>

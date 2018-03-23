@@ -28,10 +28,18 @@
    
     var auth = firebase.auth();
   
-
     var promise = auth.signInWithEmailAndPassword(email, pass);
 
-    promise.catch(e => console.log(e.message));
+    promise.catch(function(e) {
+
+      console.log(e.message);
+      console.log(e);
+      $('#error').removeClass('d-none');
+      $('#password').val('');
+    });
+
+
+
   });
 
   signUp.click(function signUpfx() {
@@ -50,27 +58,52 @@
 
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser){
-      console.log(firebaseUser);
+      console.log('signed in');
       $('#sign-up').hide();
+      $('#sign-up').addClass('hidden');
       $('#log-in').hide();
       $('#start').removeClass('hidden');
+      $('#start').show();
+      $('#start').removeClass('d-none')
+      $('.modal-form').hide();
+      $('.login-success').removeClass('d-none');
+      $('.login-success').show();
+      $('#login-btn').hide();
+      $('#password').val('');
+      $('#email').val('');
+      $('#signup-btn').hide();
     }
     else {
       console.log('not logged in');
+      $('.modal-form').show();
+      $('.login-success').hide();
     }
   });
+
+  $('#log-in').click(function () {
+    $('#signup-btn').hide();
+    $('#login-btn').show();
+
+  });
+
+  $('#sign-up').click(function() {
+    $('#signup-btn').show();
+    $('#login-btn').hide();
+
+  })
 // ---------------------------------------------------------------------
 // Log Out
 // ---------------------------------------------------------------------
   $('#logOut').click(function (){
-  firebase.auth().signOut();
-  $('#start').addClass('d-none');
-  $('#log-in').show();
-  $('#sign-up').show();
-  $('#map').hide();
-  $('.card').hide();
-  $('.question').hide();
-});
+    firebase.auth().signOut();
+    $('#start').addClass('d-none');
+    $('#log-in').show();
+    $('#sign-up').show();
+    $('#sign-up').removeClass('hidden');
+    $('#map').hide();
+    $('.card').hide();
+    $('.question').hide();
+  });
 
 
 // =============================================================================
@@ -142,6 +175,7 @@ $('.backCard').click(function () {
 
 $('#start').click(function() {
   $('.card-viewer').removeClass('hidden');
+  $('.card-viewer').removeClass('d-none')
   $('.question').removeClass('hidden');
 })
 
