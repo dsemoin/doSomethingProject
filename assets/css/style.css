@@ -162,17 +162,18 @@ div.jumbotron#home {
 	display:inline-block;
 	color:#def;
 	float:right;
+
 }
 div#weatherWidget.widget.text-center {
 	background-image: url(../images/clouds.jpg);
 	background-repeat: no-repeat;
-	/*background-position: center;
-	background-attachment: fixed;*/
+	background-position: center;
+	background-attachment: fixed;
 	background-size: cover;
 	padding: 30px;
-	border-radius: 10px;
 	margin: auto;
 	cursor: pointer;
+	
 }
 #logOut {
 	/*margin-left: 90%;
@@ -192,6 +193,7 @@ div#weatherWidget.widget.text-center {
 	background-image: url(../images/backBtn.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	margin: auto;
 }
 #map {
     height: 50%;
