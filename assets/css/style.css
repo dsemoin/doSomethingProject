@@ -164,15 +164,15 @@ div.jumbotron#home {
 	float:right;
 
 }
-div#weatherWidget.widget.text-center {
-	background-image: url(../images/clouds.jpg);
+div#weatherWidget.widget {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-	padding: 30px;
+	padding: 10px;
 	margin: auto;
 	cursor: pointer;
+
 	
 }
 #logOut {
@@ -198,6 +198,17 @@ div#weatherWidget.widget.text-center {
 	height: 120px;
 	
 }
+
+.weItem {
+	display: inline-block;
+	width: 20%;
+	font-size: 25px;
+	margin-left: 10px;
+}
+#weIcon {
+	height: 100px;
+}
+
 #map {
     height: 50%;
 }
