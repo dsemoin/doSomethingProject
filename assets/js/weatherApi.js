@@ -94,7 +94,7 @@ function weatherWidget(weatherInfo) {
 	})
 	widgetDiv.append($('<h4 class="weItem">Weather:</h4>'));
 	widgetDiv.append(imgDiv);
-	widgetDiv.append(`<h4 class='weItem'>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</h4>`);
+	widgetDiv.append(`<h4 class='weItem info'>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</h4>`);
 	widgetDiv.append(`<h4 class='weItem'>${Math.round(weatherInfo.main.temp)}&deg;F</h4>`);
 	widgetDiv.append(`<h4 class='weItem'>${weatherInfo.main.humidity}% Humidity</h4>`);
 	$("#weather").append(widgetDiv);
