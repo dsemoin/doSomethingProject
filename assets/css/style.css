@@ -206,9 +206,9 @@ div#weatherWidget.widget {
 
 .weItem {
 	display: inline-block;
-	width: 20%;
-	font-size: 25px;
-	margin-left: 10px;
+	width: 19%;
+	font-size: 22px;
+	text-align: center;
 }
 #weIcon {
 	height: 100px;
@@ -227,3 +227,18 @@ html, body {
 div {
 	color:black;
 }
+
+@media only screen and (max-width: 1033px) {
+	.weItem {
+		font-size: 2.4vw;
+		white-space: nowrap;
+	}
+
+	.info {
+		margin-right: 10%;
+	}
+	
+	#weIcon {
+		height: 10vw;
+	}
+} ;
