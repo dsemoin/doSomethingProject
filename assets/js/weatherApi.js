@@ -37,12 +37,12 @@ function weatherWidget(weatherInfo) {
 		
 	}
 
-	else if (imgNum[2] = 'd') {
-		widgetDiv.css('background-image', "url('assets/images/weatherImages/clouds.png')");
+	if (imgNum[2] = 'd') {
+		widgetDiv.css({'background-image': "url('assets/images/weatherImages/clouds.jpg')", "color": "black"});
 	}
 
 	if (imgNum === '01d') {
-		imgSrc = 'sunny.png'
+		imgSrc = 'sunny.jpeg'
 		icon += imgSrc;
 	}
 
@@ -52,7 +52,7 @@ function weatherWidget(weatherInfo) {
 	}
 
 	else if ((imgNum === '02d') || (imgNum === '03d')) {
-		imgSrc = 'sunnycloudy';
+		imgSrc = 'sunnycloudy.png';
 		icon += imgSrc
 	}
 
