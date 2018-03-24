@@ -157,6 +157,7 @@ function generateCards () {
       $('.card').click(function () {
         $('.card-viewer').empty();
         var item = $(this).attr('data');
+        
         if (obj[item] !== undefined) {
           for (var i = 0; i < cardList.length; i++) {
             if (cardList[i] === item) {

@@ -25,12 +25,78 @@ function weatherWidget(weatherInfo) {
 		class: "widget container-flud",
 		id : "weatherWidget"
 	})
-	widgetDiv.addClass('text-center')
+
+	var imgSrc;
+
+	var icon = 'assets/images/weatherImages/';
+
+	var imgNum = weatherInfo.weather[0].icon
+
+	if (imgNum[2] = 'n') {
+		widgetDiv.css({"background-image": "url('assets/images/weatherImages/night.jpg')", "color": "white"});
+		
+	}
+
+	else if (imgNum[2] = 'd') {
+		widgetDiv.css('background-image', "url('assets/images/weatherImages/clouds.png')");
+	}
+
+	if (imgNum === '01d') {
+		imgSrc = 'sunny.png'
+		icon += imgSrc;
+	}
+
+	else if (imgNum === '01n') {
+		imgSrc = 'clearmoon.png'
+		icon += imgSrc;
+	}
+
+	else if ((imgNum === '02d') || (imgNum === '03d')) {
+		imgSrc = 'sunnycloudy';
+		icon += imgSrc
+	}
+
+
+	else if ((imgNum === '02n') || (imgNum === '03n')) {
+		imgSrc = 'cloudmoon.png'
+		icon += imgSrc;
+	}
+
+	else if ((imgNum === '04n') || (imgNum === '04d')) {
+		imgSrc = 'cloudy.png'
+		icon += imgSrc;
+	}
+
+	else if ((imgNum === '09n') || (imgNum === '09d')) {
+		imgSrc = 'rainshowers';
+		icon += imgSrc;
+	}
+
+	else if (imgNum === '10d') {
+		imgSrc = 'rainsun';
+		icon += imgSrc;
+	}
+	else if (imgNum === '10n') {
+		imcSrc = 'rainnight'
+		icon += imgSrc;
+	}
+
+	else if (imgNum === '11n' || imgNum === '11d') {
+		imgSrc = 'thunderstorm.png';
+		icon += imgSrc;
+	}
+	// widgetDiv.addClass('text-center')
 	// use string interpolation to get weather info from api and displays current weather.
-	widgetDiv.append("Weather");
-	widgetDiv.append(`<div>${Math.round(weatherInfo.main.temp)}&deg;F</div>`);
-	widgetDiv.append(`<div>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</div>`);
-	widgetDiv.append(`<div>${weatherInfo.main.humidity}% Humidity</div>`);
+	var imgDiv = $('<img>')
+	imgDiv.attr({
+		id: 'weIcon',
+		src: icon,
+	})
+	widgetDiv.append($('<h4 class="weItem">Weather:</h4>'));
+	widgetDiv.append(imgDiv);
+	widgetDiv.append(`<h4 class='weItem'>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</h4>`);
+	widgetDiv.append(`<h4 class='weItem'>${Math.round(weatherInfo.main.temp)}&deg;F</h4>`);
+	widgetDiv.append(`<h4 class='weItem'>${weatherInfo.main.humidity}% Humidity</h4>`);
 	$("#weather").append(widgetDiv);
 	console.log(JSON.stringify (widgetDiv));
 	}
