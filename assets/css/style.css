@@ -187,13 +187,16 @@ div#weatherWidget.widget.text-center {
 	border: solid 1px white;
     padding:30px;
     background: red;
-    display: inline-block;
-    height: 100px;
+    display:block;
     cursor: pointer;
 	background-image: url(../images/backBtn.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin: auto;
+	width: 30%;
+	border-radius: 10px;
+	height: 120px;
+	
 }
 #map {
     height: 50%;
