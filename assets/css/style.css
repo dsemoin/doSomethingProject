@@ -175,11 +175,16 @@ div#weatherWidget.widget {
 
 	
 }
-#logOut {
+#logOut, a{
 	/*margin-left: 90%;
 	text-decoration: none;*/
 	color: red;
 	font-size: 18px;
+	float:right;
+}
+#logOut, a:hover {
+	color:#def;
+	text-decoration: none;
 }
 
 .backCard {
