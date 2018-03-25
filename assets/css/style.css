@@ -206,10 +206,13 @@ div#weatherWidget.widget {
 
 .weItem {
 	display: inline-block;
-	width: 19%;
+	width: 24%;
 	font-size: 22px;
 	text-align: center;
+	z-index: 1;
+	white-space: nowrap;
 }
+
 #weIcon {
 	height: 100px;
 }
