@@ -32,12 +32,27 @@ function weatherWidget(weatherInfo) {
 
 	var imgNum = weatherInfo.weather[0].icon
 
-	if (imgNum[2] = 'n') {
-		widgetDiv.css({"background-image": "url('assets/images/weatherImages/night.jpg')", "color": "white"});
-		
+	var head = $('<div>');
+	var sky = $('<div>');
+	var temp = $('<div>');
+	var humidity = $('<div>');
+	var iconDiv = $('<div>');
+	var iconImg = $('<img>');
+
+	
+	iconDiv.addClass('weItem');
+	sky.addClass('weItem');
+	temp.addClass('weItem');
+	humidity.addClass('weItem');
+
+	if (imgNum[2] === 'n') {
+		widgetDiv.css({"background-image": "url('assets/images/weatherImages/night.jpg')"});
+		sky.css('color', 'white');
+		temp.css('color', 'white');
+		humidity.css('color', 'white');
 	}
 
-	if (imgNum[2] = 'd') {
+	if (imgNum[2] === 'd') {
 		widgetDiv.css({'background-image': "url('assets/images/weatherImages/clouds.jpg')", "color": "black"});
 	}
 
@@ -87,16 +102,20 @@ function weatherWidget(weatherInfo) {
 	}
 	// widgetDiv.addClass('text-center')
 	// use string interpolation to get weather info from api and displays current weather.
-	var imgDiv = $('<img>')
-	imgDiv.attr({
+	
+	iconImg.attr({
 		id: 'weIcon',
 		src: icon,
-	})
-	widgetDiv.append($('<h4 class="weItem">Weather:</h4>'));
-	widgetDiv.append(imgDiv);
-	widgetDiv.append(`<h4 class='weItem info'>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</h4>`);
-	widgetDiv.append(`<h4 class='weItem'>${Math.round(weatherInfo.main.temp)}&deg;F</h4>`);
-	widgetDiv.append(`<h4 class='weItem'>${weatherInfo.main.humidity}% Humidity</h4>`);
+		alt: 'currentWeather'
+	});
+
+	iconDiv.append(iconImg);
+	sky.append(`<h4>${weatherInfo.weather[0].main} - ${weatherInfo.weather[0].description}</h4>`);
+	temp.append(`<h4>${Math.round(weatherInfo.main.temp)}&deg;F</h4>`);
+	humidity.append(`<h4>${weatherInfo.main.humidity}% Humidity</h4>`);
+
+	widgetDiv.append(iconDiv, sky, temp, humidity)
+
 	$("#weather").append(widgetDiv);
 	console.log(JSON.stringify (widgetDiv));
 	}
