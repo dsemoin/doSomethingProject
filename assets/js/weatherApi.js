@@ -57,7 +57,7 @@ function weatherWidget(weatherInfo) {
 	}
 
 	if (imgNum === '01d') {
-		imgSrc = 'sunny.jpeg'
+		imgSrc = 'sun.png'
 		icon += imgSrc;
 	}
 

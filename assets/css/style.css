@@ -49,112 +49,84 @@ div.jumbotron#home {
 		#Food {
 			background-image: url(../images/chef1.jpg);
 			background-repeat: no-repeat;
-			/*background-position: center;
-			background-attachment: fixed;*/
 			background-size: cover;
 			padding: 75px;
 		}
 			#American {
 				background-image: url(../images/american.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Asian {
 				background-image: url(../images/asian.jpeg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Latin {
 				background-image: url(../images/mexican.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Italian {
 				background-image: url(../images/italian.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 		#Entertainment {
 			background-image: url(../images/background.jpg);
 			background-repeat: no-repeat;
-			/*background-position: center;
-			background-attachment: fixed;*/
 			background-size: cover;
 			padding: 75px;
 		}
 			#Movies {
 				background-image: url(../images/movies.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Clubs {
 				background-image: url(../images/club.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Events {
 				background-image: url(../images/event.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 		#Fitness {
 			background-image: url(../images/gym.jpg);
 			background-repeat: no-repeat;
-			/*background-position: center;
-			background-attachment: fixed;*/
 			background-size: cover;
 			padding: 75px;
 		}
 			#Gym {
 				background-image: url(../images/gym1.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Park {
 				background-image: url(../images/park.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Sports {
 				background-image: url(../images/sports.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
 			#Martial-Arts {
 				background-image: url(../images/mma.jpg);
 				background-repeat: no-repeat;
-				/*background-position: center;
-				background-attachment: fixed;*/
 				background-size: cover;
 				padding: 60px;
 			}
